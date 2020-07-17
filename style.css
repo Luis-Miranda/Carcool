@@ -51,6 +51,16 @@ html,body{
     width: 1280px;
 }
 
+.quien{
+    margin-top: 60px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.Q{
+    margin-top: 45px;
+}
+
 
 .form{
     display: flex;
