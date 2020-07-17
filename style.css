@@ -1,37 +1,43 @@
-html,body{
+html,
+body {
     font-family: 'Do Hyeon', sans-serif;
     height: 100%;
     width: 100%;
     background-color: rgb(230, 106, 4);
 }
 
-.land{
-    background-color: rgb(230,106,4);
+.land {
+    background-color: rgb(230, 106, 4);
 }
 
 .formUsuario {
     margin: 140px;
     margin-left: 410px;
     margin-top: 100px;
-    height: 20rem;
+    height: 30rem;
     width: 30rem;
 }
 
-.card{
+.card {
     width: 30rem;
-    height: 22rem;
+    height: 30rem;
     border-radius: 20px;
-
 }
 
-.demo{
-    height:720px ;
+.demo {
+    height: 720px;
     width: 1280px;
 }
 
-.form{
+.form {
     display: flex;
     align-items: center;
     justify-content: center;
     align-self: center;
+}
+
+#output {
+    width: 60px;
+    height: 50px;
+    border: none;
 }
