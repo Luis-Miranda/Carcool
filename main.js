@@ -14,9 +14,13 @@ botonCotizar.addEventListener("click", function() {
     var valorPresupuesto = document.getElementById("presuRange").value;
     var valorTransmision = document.getElementById("transmisionOption").value.toLowerCase();
 
+    var vTrans = document.getElementById("transmisionOption").value;
 
     var padreUser = document.getElementById("padreform");
     var formUser = document.getElementById("formularioUsuario");
+
+    var nombreCliente = document.getElementById('nombre').value;
+    var apellidoCliente = document.getElementById('apellido').value;
 
     if (valorTransmision == "automatico") {
         valorTransmision = "auto";
@@ -30,11 +34,18 @@ botonCotizar.addEventListener("click", function() {
 
         let autosCotizados = [];
         padreUser.removeChild(formUser)
+
+        var naCliente = document.createElement('h1');
+        naCliente.innerHTML = 'Bienvenido: ' + nombreCliente + ' ' + apellidoCliente;
+
+        contenedordeCarros.appendChild(naCliente);
+
+
         for (let i = 0; i < autos.length; i++) {
-            console.log(autos[0].make);
+
             if (valorMarca == autos[i].make && valorModelo == autos[i].year && valorTransmision == autos[i].transmision && (autos[i].price <= (valorPresupuesto * 5))) {
                 autosCotizados.push(autos[i]);
-                var logoimg;
+                var logoImg;
                 if (valorMarca == 'Ford') {
                     logoImg = './src/ford.png';
                 } else if (valorMarca == 'Chevrolet') {
@@ -42,6 +53,8 @@ botonCotizar.addEventListener("click", function() {
                 } else {
                     logoImg = './src/nissan.png';
                 }
+
+
 
                 var contenedorDiv = document.createElement('div');
                 contenedorDiv.id = 'carrosOutput';
@@ -53,9 +66,9 @@ botonCotizar.addEventListener("click", function() {
                 var autosBody = document.createElement('div');
                 autosBody.className = 'card-body';
                 autosBody.id = 'bodycar';
-                var marcaCard = document.createElement('h1');
-                marcaCard.innerHTML = autos[i].make;
-                marcaCard.className = 'card-text';
+                var contenedorColores = document.createElement('div');
+                contenedorColores.id = 'coloresArray';
+                contenedorColores.className = 'card-body';
                 var yearCard = document.createElement('h2');
                 yearCard.innerHTML = autos[i].year;
                 yearCard.className = 'card-text';
@@ -63,28 +76,47 @@ botonCotizar.addEventListener("click", function() {
                 modeloCard.innerHTML = autos[i].model;
                 modeloCard.className = 'card-text';
                 var priceCard = document.createElement('h2');
-                priceCard.innerHTML = autos[i].price;
+                priceCard.innerHTML = '$ ' + autos[i].price;
                 priceCard.className = 'card-text';
                 var transmisionCard = document.createElement('h2');
-                transmisionCard.innerHTML = autos[i].transmision;
+                transmisionCard.innerHTML = vTrans;
                 transmisionCard.className = 'card-text';
-                var colorCard = document.createElement('h2');
-                colorCard.innerHTML = autos[i].colors;
-                colorCard.className = 'card-text';
-
+                var bodyStyle = document.createElement('h2');
+                bodyStyle.innerHTML = 'tipo de coche: ' + autos[i].body_styles;
+                bodyStyle.className = 'card-text';
                 contenedordeCarros.appendChild(contenedorDiv);
                 contenedorDiv.appendChild(imgLogo);
                 contenedorDiv.appendChild(autosBody);
-                autosBody.appendChild(marcaCard);
-                autosBody.appendChild(yearCard);
                 autosBody.appendChild(modeloCard);
+                autosBody.appendChild(yearCard);
                 autosBody.appendChild(transmisionCard);
-                autosBody.appendChild(colorCard);
+                autosBody.appendChild(bodyStyle);
                 autosBody.appendChild(priceCard);
+                autosBody.appendChild(contenedorColores);
+
+
+                var colorCoches = [];
+                for (let index = 0; index < autos[i].colors.length; index++) {
+                    var colorC = document.createElement('div');
+                    colorC.id = 'divColor';
+                    colorC.innerHTML = autos[i].colors[index];
+                    colorC.style.backgroundColor = autos[i].colors[index];
+                    contenedorColores.appendChild(colorC);
+
+                }
 
             }
         }
+
         console.log(autosCotizados);
+        if (autosCotizados.length == 0) {
+            var noaicoches = document.createElement('h1');
+            noaicoches.id = 'noaicoches';
+            noaicoches.innerHTML = 'Lo sentimos por el momento no hay coches que mostar';
+
+            contenedordeCarros.appendChild(noaicoches);
+
+        }
     }
 
 
