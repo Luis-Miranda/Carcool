@@ -45,76 +45,62 @@
 
     </section>
 
-    <div id="contenedordeCarros">
-        <div id="carrosOutput">
-
-        </div>
-    </div>
-
     <section class="formUsuario">
-        <div id="padreform">
-            <div class="card" id="formularioUsuario">
-                <div class="card-body">
-                    <h5 class="card-tittle">Personaliza tu Vehiculo</h5>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Personaliza tu Vehiculo</h5>
+                <form>
                     <form>
-                        <form>
-                            <div class="form-row">
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Nombre" id="nombre">
-                                </div>
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Apellido" id="apellido">
-                                </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Nombre" id="nombre">
                             </div>
-                        </form>
-                        <div class="form-group">
-                            <label for="label">Marca</label>
-                            <select class="form-control" id="makeOption">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Apellido" id="apellido">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="form-group">
+                        <label for="label">Marca</label>
+                        <select class="form-control" id="makeOption">
                         <option>Selecciona tu Marca de Preferencia</option>
                         <option>Chevrolet</option>
                         <option>Ford</option>
                         <option>Nissan</option>
                     </select>
-                        </div>
-                        <form>
-                            <div class="inputPresupuesto" id="inputPresupuesto">
-                                <label id="exampleFormControlSelect1" for="formControlRange">Presupuesto:</label>
-                                <input name=»txtTabla» type=»text» id="output" value=80000>
-                                <input type="range" class="form-control-range" id="presuRange" min=15000 max="150000" step="1000" value="80000">
-                            </div>
-                        </form>
-                        <div class="form-group">
-                            <label id="exampleFormControlSelect1" for="exampleFormControlSelect1">Transmision</label>
-                            <select class="form-control" id="transmisionOption">
-                            <option>Selecciona tu tipo de caja de velocidades</option>
-                            <option>Manual</option>
-                            <option>Automatico</option>
-                        </select>
+                    </div>
+                    <form>
+                        <div class="inputPresupuesto" id="inputPresupuesto">
+                            <label id="exampleFormControlSelect1" for="formControlRange">Presupuesto:</label>
+                            <input name=»txtTabla» type=»text» id="output" value=80000>
+                            <input type="range" class="form-control-range" id="presuRange" min=15000 max="150000" step="1000" value="80000">
 
-                        </div>
-                        <div class="form-group">
-                            <label id="exampleFormControlSelect1" for="exampleFormControlSelect1">Modelo</label>
-                            <select class="form-control" id="modelOption">
-                            <option>Selecciona el año de modelo</option>
-                            <option>2019</option>
-                            <option>2020</option>
-                        </select>
-
-
-                        </div>
-                        <button type="button" id="button">Cotizar </button>
                     </form>
+                    </div>
+                </form>
+                <div class="form-group">
+                    <label id="exampleFormControlSelect1" for="exampleFormControlSelect1">Transmision</label>
+                    <select class="form-control" id="transmisionOption">
+                        <option>Selecciona tu tipo de caja de velocidades</option>
+                        <option>Manual</option>
+                        <option>Automatico</option>
+                    </select>
+
                 </div>
+                <div class="form-group">
+                    <label id="exampleFormControlSelect1" for="exampleFormControlSelect1">Modelo</label>
+                    <select class="form-control" id="modelOption">
+                        <option>Selecciona el año de modelo</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                    </select>
 
+                </div>
+                <button id="button">Cotizar </button>
+                </form>
             </div>
-
         </div>
     </section>
-
-
-
-
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
