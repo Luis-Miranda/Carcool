@@ -18,30 +18,74 @@ botonCotizar.addEventListener("click", function() {
     var padreUser = document.getElementById("padreform");
     var formUser = document.getElementById("formularioUsuario");
 
-
     if (valorTransmision == "automatico") {
         valorTransmision = "auto";
     }
-    let autosCotizados = [];
-    for (let index = 0; index < autos.length; index++) {
-        if (valorMarca == autos[index].make && valorModelo == autos[index].year && valorTransmision == autos[index].transmision && (autos[index].price <= valorPresupuesto * 5)) {
-            autosCotizados.push(autos[index]);
-            var div = document.createElement("div");
-            div.id = "carrosOutput";
-            div.className = 'card col-3 shadow-lg p-3 mb-5 bg-white rounded';
-            var autosCardbody = document.createElement('div');
-            autosCardbody.className = 'card-body';
-            var autosMarca = document.createElement('h2')
-            autosMarca.innerHTML = autos[index].make;
-            contenedordeCarros.appendChild(div)
-            div.appendChild(autosCardbody)
-            autosCardbody.appendChild(autosMarca)
 
 
+
+    if (valorMarca == 'Selecciona tu Marca de Preferencia' || valorTransmision == 'selecciona tu tipo de caja de velocidades' || valorModelo == 'Selecciona el año de modelo') {
+        alert('Por favor selecciona una opcion valida');
+    } else {
+
+        let autosCotizados = [];
+        padreUser.removeChild(formUser)
+        for (let i = 0; i < autos.length; i++) {
+            console.log(autos[0].make);
+            if (valorMarca == autos[i].make && valorModelo == autos[i].year && valorTransmision == autos[i].transmision && (autos[i].price <= (valorPresupuesto * 5))) {
+                autosCotizados.push(autos[i]);
+                var logoimg;
+                if (valorMarca == 'Ford') {
+                    logoImg = './src/ford.png';
+                } else if (valorMarca == 'Chevrolet') {
+                    logoImg = './src/chevrolet.png';
+                } else {
+                    logoImg = './src/nissan.png';
+                }
+
+                var contenedorDiv = document.createElement('div');
+                contenedorDiv.id = 'carrosOutput';
+                contenedorDiv.className = 'card col-3 shadow-lg p-3 mb-5 bg-white rounded';
+                var imgLogo = document.createElement('img');
+                imgLogo.className = 'card-img-top';
+                imgLogo.style.width = '10rem';
+                imgLogo.setAttribute('src', logoImg);
+                var autosBody = document.createElement('div');
+                autosBody.className = 'card-body';
+                autosBody.id = 'bodycar';
+                var marcaCard = document.createElement('h1');
+                marcaCard.innerHTML = autos[i].make;
+                marcaCard.className = 'card-text';
+                var yearCard = document.createElement('h2');
+                yearCard.innerHTML = autos[i].year;
+                yearCard.className = 'card-text';
+                var modeloCard = document.createElement('h2');
+                modeloCard.innerHTML = autos[i].model;
+                modeloCard.className = 'card-text';
+                var priceCard = document.createElement('h2');
+                priceCard.innerHTML = autos[i].price;
+                priceCard.className = 'card-text';
+                var transmisionCard = document.createElement('h2');
+                transmisionCard.innerHTML = autos[i].transmision;
+                transmisionCard.className = 'card-text';
+                var colorCard = document.createElement('h2');
+                colorCard.innerHTML = autos[i].colors;
+                colorCard.className = 'card-text';
+
+                contenedordeCarros.appendChild(contenedorDiv);
+                contenedorDiv.appendChild(imgLogo);
+                contenedorDiv.appendChild(autosBody);
+                autosBody.appendChild(marcaCard);
+                autosBody.appendChild(yearCard);
+                autosBody.appendChild(modeloCard);
+                autosBody.appendChild(transmisionCard);
+                autosBody.appendChild(colorCard);
+                autosBody.appendChild(priceCard);
+
+            }
         }
-
+        console.log(autosCotizados);
     }
-    padreUser.removeChild(formUser);
 
-    console.log(autosCotizados);
+
 })
